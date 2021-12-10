@@ -1,0 +1,12 @@
+Host: krypton.labs.overthewire.org
+Port: 2231
+
+# Level 0
+echo "S1JZUFRPTklTR1JFQVQ=" | base64 --decode
+ssh krypton1@krypton.labs.overthewire.org -p 2231
+
+# Level 1
+cd /krypton/krypton1
+cat README.md
+cat krypton2 | tr 'N-ZA-Mn-za-m' 'A-Za-z'
+==== ROTTEN ====

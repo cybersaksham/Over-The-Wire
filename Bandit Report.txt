@@ -1,0 +1,256 @@
+Host: bandit.labs.overthewire.org
+Port: 2220
+
+
+Initial Password -> bandit0
+
+# Level 0
+command -> cat readme
+password -> boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+# Level 1
+command -> cat < -
+password -> CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+
+# Level 2
+command -> cat spaces\ in\ this\ filename
+password -> UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+
+# Level 3
+command -> cat inhere/.hidden
+password -> pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+
+# Level 4
+command -> find -exec file {} +
+password -> koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+
+# Level 5
+command -> find -size 1033c ! -executable -exec file {} +
+password -> DXjZPULLxYr17uwoI01bNLQbtFemEgo7
+
+# Level 6
+command -> find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+password -> HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+# Level 7
+command -> cat data.txt | grep -w "millionth"
+password -> cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+# Level 8
+command -> cat data.txt | sort | uniq -u
+password -> UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+# Level 9
+command -> cat data.txt | strings -e s | grep ==
+password -> truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+
+# Level 10
+command -> cat data.txt | base64 --decode
+password -> IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
+# Level 11
+command -> cat data.txt | tr 'N-ZA-Mn-za-m' 'A-Za-z'
+password -> 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+
+# Level 12
+command -> mkdir /tmp/saksham
+           cp data.txt /tmp/saksham
+           cd /tmp/saksham
+           file data.txt --> Hex dump
+           xxd -r data.txt > data.bin --> converting to binary
+           file data.bin --> gzip compressed
+           zcat data.bin > data2
+           file data2 --> bzip2 compressed
+           bzcat data2 > data3
+           file data3 --> gzip compressed
+           zcat data3 > data4
+           file data4 --> tar archive
+           tar -xvf data4
+           file data5.bin --> tar archive
+           tar -xvf data5.bin
+           file data6.bin --> bzip2 compressed
+           bzcat data6.bin > data7
+           file data7 --> tar archive
+           tar -xvf data7
+           file data8.bin --> gzip compressed
+           zcat data8.bin > data9
+           file data9 --> ASCII text
+           cat data9
+password -> 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+# Level 13
+command -> ssh -i sshkey.private bandit14@localhost
+           cat /etc/bandit_pass/bandit14
+password -> 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+
+# Level 14
+command -> nc localhost 30000
+password -> BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+# Level 15
+command -> openssl s_client --connect localhost:30001
+password -> cluFn7wTiGryunymYOu4RcffSxQluehd
+
+# Level 16
+command -> nmap -p31000-32000 localhost
+           openssl s_client --connect localhost:31790
+           exit
+           cat > bandit17.key --> Save copied RSA key in local machine
+           sudo chomd 400 bandit17.key
+           ssh -i bandit17.key bandit17@bandit.labs.overthewire.org -p 2220
+           cat /etc/bandit_pass/bandit17
+password -> xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+
+# Level 17
+command -> diff passwords.old passwords.new
+password -> kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+
+# Level 18
+command -> ssh bandit18@bandit.labs.overthewire.org -p 2220 -T
+           cat readme
+password -> IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+
+# Level 19
+command -> ./bandit20-do cat /etc/bandit_pass/bandit20
+password -> GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+# Level 20
+command -> echo GbKksEFF4yrVs6il55v6gwY5aVje5f0j | nc -l localhost -p 3000 &
+           ./suconnect 3000
+password -> gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+
+# Level 21
+command -> cd /etc/cron.d
+           cat cronjob_bandit22
+           cat /usr/bin/cronjob_bandit22.sh
+           cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+password -> Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+# Level 22
+command -> cd /etc/cron.d
+           cat cronjob_bandit23
+           cat /usr/bin/cronjob_bandit23.sh
+           echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+           cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+password -> jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+# Level 23
+command -> cd /etc/cron.d
+           cat cronjob_bandit24
+           cat /usr/bin/cronjob_bandit24.sh
+           mkdir /tmp/cron
+           cd /tmp/cron
+           touch script.sh
+           echo 'cat /etc/bandit_pass/bandit24 > /tmp/cron/pass.txt' > script.sh
+           touch pass.txt
+           chmod 777 script.sh
+           chmod 666 pass.txt
+           cp script.sh /var/spool/bandit24/
+           cat /tmp/pass.txt
+password -> UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+# Level 24
+command -> mkdir /tmp/b25
+           cd /tmp/b25
+           vim script.sh
+
+           PUT THIS SCRIPT IN script.sh
+           "#!/bin/bash
+
+            password="UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ"
+            for i in {0000..9999}
+            do
+                echo $password' '$i >> pass.txt
+            done
+           "
+
+           chmod 777 script.sh
+           ./script.sh
+           cat pass.txt | nc localhost 30002 >> pswd
+           sort pswd | uniq -u
+password -> uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+# Level 25
+command -> ssh -i bandit26.sshkey bandit26@localhost
+           cat /etc/passwd | grep bandit26
+           cat /usr/bin/showtext
+
+           MINIMIZE TERMINAL SHOW THAT WHEN LOGGING IN TO bandit26 IT SHOW MORE SCRIPT
+
+           ssh -i bandit26.sshkey bandit26@localhost
+           v
+           :e /etc/bandit_pass/bandit26
+password -> 5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+
+# Level 26
+DONT CLOSE EDITOR IN LEVEL 25 -> 26
+command -> :set shell=/bin/bash
+           :shell
+           ls -la
+           ./bandit27-do cat /etc/bandit_pass/bandit27
+password -> 3ba3118a22e93127a4ed485be72ef5ea
+
+# Level 27
+command -> mkdir /tmp/b28
+           cd /tmp/b28
+           git clone ssh://bandit27-git@localhost/home/bandit27-git/repo
+           cat repo/README
+password -> 0ef186ac70e04ea33b4c1853d2526fa2
+
+# Level 28
+command -> mkdir /tmp/b29
+           cd /tmp/b29
+           git clone ssh://bandit28-git@localhost/home/bandit28-git/repo
+           cd repo
+           cat README.md
+           git rev-list --count HEAD
+           git revert HEAD
+           cat README.md
+password -> bbc96594b4e001778eee9975372716b2
+
+# Level 29
+command -> mkdir /tmp/b30
+           cd /tmp/b30
+           git clone ssh://bandit29-git@localhost/home/bandit29-git/repo
+           cd repo
+           cat README.md
+           git log
+           git branch -a
+           git checkout dev
+           cat README.md
+password -> 5b90576bedb2cc04c86a9e924ce42faf
+
+# Level 30
+command -> mkdir /tmp/b31
+           cd /tmp/b31
+           git clone ssh://bandit30-git@localhost/home/bandit30-git/repo
+           cd repo
+           cat README.md
+           git log
+           git branch -a
+           git tag -l
+           git show secret
+password -> 47e603bb428404d265f59c42920d81e5
+
+# Level 31
+command -> mkdir /tmp/b32
+           cd /tmp/b32
+           git clone ssh://bandit31-git@localhost/home/bandit31-git/repo
+           cd repo
+           git log
+           git branch -a
+           git tag -l
+           cat README.md
+           cat .gitignore
+           echo '' > .gitignore
+           echo 'May I come in?' > key.txt
+           git add .
+           git commit -m "key file"
+           git push -u origin master
+password -> 56a9bf19c63d650ce78e6ec0354ee45e
+
+# Level 32
+command -> $0
+           whoami
+           cat /etc/bandit_pass/bandit33
+password -> c9c3199ddf4121b10cf581a98d51caee
